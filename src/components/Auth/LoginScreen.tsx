@@ -15,7 +15,7 @@ const LoginScreen: React.FC = () => {
         ${
           isOpen
             ? "md:w-1/3 w-full lg:w-1/3"
-            : "w-full xl:w-5/12"
+            : "w-full xl:w-1/3"
         }`}
       >
       <div>
