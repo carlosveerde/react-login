@@ -3,6 +3,8 @@ import { GlobalStyle } from './assets/styles/GlobalStyle';
 import LoginScreen from './components/Auth/LoginScreen';
 import Slider from './components/Slider/Slider';
 import { SliderProvider } from './contexts/Slider/SliderContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => (
   <SliderProvider>
@@ -11,6 +13,7 @@ const App: React.FC = () => (
       <Slider />
       <LoginScreen />
     </div>
+    <ToastContainer />
   </SliderProvider>
 );
 

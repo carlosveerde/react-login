@@ -27,12 +27,11 @@ const Input: React.FC<InputProps> = ({ id, type, placeholder, label, icon, toggl
           name={id}
           type={showPassword ? "text" : type}
           className={`
-            w-full p-2 border text-black
-            dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200
+            w-full p-2 border text-black dark:bg-neutral-800 dark:text-neutral-200
             ${error 
               ? 'border-red-500 dark:border-red-500' 
               : isValid ? 'border-green-600 dark:border-green-600' 
-              : 'border-neutral-400 hover:dark:border-blue-600 focus:dark:border-blue-700 hover:border-blue-600 focus:border-blue-700'}
+              : 'border-neutral-400 hover:dark:border-blue-600 focus:dark:border-blue-700 hover:border-blue-600 focus:border-blue-700 dark:border-neutral-600 '}
             placeholder:text-neutral-600 rounded-lg pl-10 focus:outline-none
           `}
           placeholder={placeholder}

@@ -8,9 +8,11 @@ import ButtonSubmit from "../UI/ButtonSubmit";
 import { FaRegSquare, FaCheckSquare } from 'react-icons/fa';
 import { MdVisibilityOff, MdVisibility, } from "react-icons/md";
 import { Formik, Form } from 'formik';
+import { toast } from 'react-toastify';
 
 const MOCKED_USER = 'teste';
 const MOCKED_PASSWORD = 'senha123';
+const REACT_APP_HCAPTCHA_SITEKEY = process.env.REACT_APP_HCAPTCHA_SITEKEY;
 
 interface FormValues {
   username: string;
@@ -20,9 +22,9 @@ interface FormValues {
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [token, setToken] = useState(null);
   const [checked, setChecked] = useState(false);
   const [hover, setHover] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false); 
 
   const initialValues = {
     username: '',
@@ -42,21 +44,35 @@ export default function LoginForm() {
     } else if (values.password !== MOCKED_PASSWORD) {
       errors.password = 'Senha incorreta';
     }
-
     return errors;
   };
 
   const onSubmit = (values: FormValues) => {
-    console.log('Login bem-sucedido', values);
+    if (!isCaptchaVerified) {
+      toast.error("Por favor, verifique o captcha antes de enviar o formulário.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    toast.success("Sucesso", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   let Icon = FaRegSquare; 
   if (hover || checked) Icon = FaCheckSquare; 
-
-  useEffect(() => {
-    if (token)
-      console.log(`hCaptcha Token: ${token}`);
-  }, [token]);
 
   return (
     <Formik
@@ -75,7 +91,7 @@ export default function LoginForm() {
               <img src={personIcon} alt='' className="size-4"/>
             } 
             label={'Usuário'} 
-            error={touched.username ? errors.username : undefined}
+            error={isSubmitting ? undefined : touched.username ? errors.username : undefined}
             isValid={isSubmitting && touched.username && !errors.username}
           />
           <Input
@@ -91,7 +107,7 @@ export default function LoginForm() {
             }
             showPassword={showPassword}
             setShowPassword={setShowPassword}
-            error={touched.password ? errors.password : undefined}
+            error={isSubmitting ? undefined : touched.password ? errors.password : undefined}
             isValid={isSubmitting && touched.password && !errors.password}
           />        
           <div className="mt-3 flex items-center gap-4">
@@ -108,7 +124,10 @@ export default function LoginForm() {
             </label>
           </div>
           <div className="mt-3 flex justify-center py-2">
-            <HCaptcha sitekey="00000000–0000–0000–0000–000000000000" />
+            <HCaptcha 
+              sitekey={REACT_APP_HCAPTCHA_SITEKEY ?? "00000000–0000–0000–0000–000000000000"} 
+              onVerify={(token: string) => setIsCaptchaVerified(true)} 
+            />
           </div>
           <ButtonSubmit disabled={isLoading} icon={enterIcon} label={'Entrar'} />
         </Form>
