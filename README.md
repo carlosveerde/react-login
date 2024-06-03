@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Login Page - React</h1>
+  <h1 align="center">Login Page Toolzz - React</h1>
 </p>
 
 ## Sobre o Projeto
@@ -13,7 +13,8 @@ Adaptável a qualquer dispositivo, ela oferece responsividade, Dark Mode para co
 
 O layout, projetado com foco na usabilidade e estética no Figma, está disponível para consulta. [Acessar Layout no Figma](https://www.figma.com/file/BsEYeUYzOP85w4624ZlZNY/Login---Teste?type=design&node-id=0-1&mode=design&t=L37pDwDoeXTfkYqE-0).
 
-## Pré-requisitos e Tecnologias 🚧💻
+## Pré-requisitos e Tecnologias
+
 
 Para executar este projeto, certifique-se de ter:
 
