@@ -11,10 +11,10 @@ const StyledSocialButton = styled.button<Omit<SocialButtonProps, 'iconSrc'>>`
     align-items: center;
     justify-content: center;
     background-color: transparent; 
-    border: 2px solid #ddd;
+    border: 1px solid #151515;
     padding: 10px;
     margin: 5px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -30,7 +30,7 @@ const StyledSocialButton = styled.button<Omit<SocialButtonProps, 'iconSrc'>>`
 
 const SocialButton: React.FC<SocialButtonProps> = ({ iconSrc, onClick }) => (
   <StyledSocialButton onClick={onClick}>
-    <img src={iconSrc} />
+    <img src={iconSrc} alt=''/>
   </StyledSocialButton>
 );
 

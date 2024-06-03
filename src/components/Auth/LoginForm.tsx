@@ -1,23 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 import SocialButtons from './SocialButtonsContainer';
+import WelcomeMessage from './Welcome';
 
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 644px; 
-  max-width: 100%;
-  margin: auto; 
-  padding: 20px;
-`;
+
 
 const LoginForm: React.FC = () => {
   return (
-    <LoginContainer>
-      <SocialButtons />
-    </LoginContainer>
+    <div className='h-full px-10 md:w-full w-full flex justify-center dark:bg-neutral-800 w-full md:w-8/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12'>
+      <div className='w-full'>
+        <WelcomeMessage />
+        <SocialButtons />
+      </div>
+    </div>
   );
 };
 
