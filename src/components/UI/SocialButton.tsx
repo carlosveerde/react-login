@@ -1,36 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 
 interface SocialButtonProps {
   iconSrc: string;
+  iconHoverSrc: string;
   onClick: () => void;
 }
 
-const StyledSocialButton = styled.button<Omit<SocialButtonProps, 'iconSrc'>>`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent; 
-    border: 1px solid #151515;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+const SocialButton: React.FC<SocialButtonProps> = ({ iconSrc, iconHoverSrc, onClick }) => {
+  const [isHovering, setIsHovering] = useState(false);
 
-    img {
-      size: 18px;
-    }
-
-    &:hover {
-    border-color: #ccc; 
-    background-color: #f7f7f7; 
-    }
-`;
-
-const SocialButton: React.FC<SocialButtonProps> = ({ iconSrc, onClick }) => (
-  <StyledSocialButton onClick={onClick}>
-    <img src={iconSrc} alt=''/>
-  </StyledSocialButton>
-);
+  return (
+    <button
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      onClick={onClick}
+      className="
+        flex items-center justify-center bg-transparent border 
+        border-black p-2.5 rounded-lg cursor-pointer transition-all duration-300 
+        dark:border-white hover:border-blue-700  dark:hover:border-blue-700
+      "
+    >
+      <img src={isHovering ? iconHoverSrc : iconSrc} alt="" className="w-4 h-4"/>
+    </button>
+  )
+};
 
 export default SocialButton;
