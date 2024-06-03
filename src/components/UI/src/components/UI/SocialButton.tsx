@@ -13,13 +13,12 @@ const StyledSocialButton = styled.button<Omit<SocialButtonProps, 'iconSrc'>>`
     background-color: transparent; 
     border: 1px solid #151515;
     padding: 10px;
-    margin: 5px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 
     img {
-        size: 18px;
+      size: 18px;
     }
 
     &:hover {

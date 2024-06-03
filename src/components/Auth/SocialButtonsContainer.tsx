@@ -8,7 +8,7 @@ import toolzzIcon from '../../assets/icons/toolzz.svg';
 
 const SocialButtons: React.FC = () => {
   return (
-    <div className='grid grid-flow-col justify-stretch w-full p-6'>
+    <div className='grid grid-flow-col justify-stretch w-full gap-2'>
         <SocialButton
             iconSrc={toolzzIcon}
             onClick={() => console.log('Login com Toolzz')}
