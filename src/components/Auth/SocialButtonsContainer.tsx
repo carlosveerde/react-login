@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialButton from '../UI/src/components/UI/SocialButton';
+import SocialButton from '../UI/SocialButton';
 
 import appleIcon from '../../assets/icons/apple.svg';
 import facebookIcon from '../../assets/icons/facebook.svg';
