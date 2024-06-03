@@ -16,7 +16,7 @@ export const useSlider = () => useContext(SliderContext);
 export const SliderProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const images = ["banner.png"];
+    const images = ["banner.png", "banner-2.png", "banner-3.png"];
   const [isOpen, setOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
   const toggleSlider = () => setOpen(!isOpen);

@@ -11,7 +11,7 @@ const LoginScreen: React.FC = () => {
 
   return (
     <div
-        className={`h-full md:w-full w-full p-12 justify-center
+        className={`h-full md:w-full w-full p-12 justify-center overflow-auto
         ${
           isOpen
             ? "md:w-1/3 w-full lg:w-1/3"
