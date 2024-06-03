@@ -4,6 +4,7 @@ import WelcomeMessage from './Welcome';
 import LoginForm from './LoginForm';
 import Header from '../Layout/Header';
 import { useSlider } from "../../contexts/Slider/SliderContext";
+import Divider from './Divider';
 
 const LoginScreen: React.FC = () => {
   const { isOpen } = useSlider();
@@ -21,6 +22,7 @@ const LoginScreen: React.FC = () => {
         <Header />
         <WelcomeMessage />
         <SocialButtons />
+        <Divider />
         <LoginForm />
       </div>
     </div>
